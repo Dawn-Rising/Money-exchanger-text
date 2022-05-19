@@ -1,0 +1,87 @@
+'''
+travelagent.py
+
+##########################################
+#### Calderdale College Travel Agency ####
+##########################################
+
+Bureau  de Change system to convert from GBP 
+to requested currency.
+
+Suported currencies: GBP,USD,EUR,BRL,JPY,TRY
+
+Version 0.01 
+Author: <your name>
+email: <your student email address>
+
+'''
+
+#set up some dictonaries to store data - leave alone
+exchangeRate = {
+    #"GBP":0,
+   "USD":0,
+    "EUR":0,
+    "BRL":0,
+    "JPY":0,
+    "TRY":0
+}
+
+#set up some variables for general use
+baseTransactionFee = 0.00   #percentage transaction fee for upto 300GBP 
+staffDiscountRate = 0.00     #percentage discount rate to apply to staff discounts
+staffMember = False              #Initial status of staff member discount
+transactionFee = 0              #Initial status of transactionFee
+
+def welcome_message():
+#get amount to convert
+  print("Hello\nWelcome to the Bureau De Change System")
+
+def get_amount_to_convert():
+  amountToConvert = 0
+  return float(amountToConvert)
+
+def get_currency_to_convert_to():
+  currencyToConvertTo = "usd"
+  return currencyToConvertTo
+
+def is_staff_member():
+#find out if this is for a staff memebr
+  return True
+    
+def convert_currency(currencyToConvertTo,amountToConvert):
+  convertedAmount = 0
+  return convertedAmount
+
+def work_out_the_fee(transactionFee,amountToConvert):#Work out the fee
+  if amountToConvert <= 5:
+    transactionFee = transactionFee+(amountToConvert*0.035)
+  return transactionFee
+
+def work_out_total_cost(transactionFee,amountToConvert):
+#workout the total cost
+  totalCost = 0
+  return totalCost
+
+
+# Leave the code below alone  **NO NEED TO EDIT IT** :)
+
+def print_result(amountToConvert,currencyToConvertTo,convertedAmount,transactionFee,totalCost,staffMember):
+  print("\nThe conversion is as follows:\n")
+  print("Converting %s GPB to %s results in an amount of %s %s" %(str(format(amountToConvert,'.2f')),currencyToConvertTo,str(format(convertedAmount,'.2f')),currencyToConvertTo,))
+  print("The transaction fee for this is %s GBP" % (str(format(transactionFee,'.2f')),))
+  
+  if staffMember == True:
+    discountAmount = transactionFee * staffDiscountRate
+    print("A staff discount of %s GBP will also be applied" %(str(format(discountAmount,'.2f'))))
+    totalCost = totalCost - discountAmount
+
+  print("\nThis results in a total charge of %s GBP" % format(totalCost,'.2f'))
+
+welcome_message()
+amountToConvert = get_amount_to_convert()
+targetCurrency = get_currency_to_convert_to()
+staffMember = is_staff_member()
+convertedAmount =convert_currency(targetCurrency,amountToConvert)
+transactionFee = work_out_the_fee(transactionFee,amountToConvert)
+totalCost = work_out_total_cost(transactionFee,amountToConvert)
+print_result(amountToConvert,targetCurrency,convertedAmount,transactionFee,totalCost,staffMember)
